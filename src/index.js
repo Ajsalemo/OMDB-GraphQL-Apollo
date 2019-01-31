@@ -5,25 +5,31 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import { RestLink } from "apollo-link-rest";
-import { ApolloClient } from 'apollo-client'
-import { InMemoryCache } from 'apollo-cache-inmemory'
 import { ApolloProvider } from 'react-apollo';
+import { client } from './apolloclient';
 
 // Test
-import { graphql } from 'react-apollo'
-import { gql } from 'apollo-boost'
+import gql from "graphql-tag";
 
 require('dotenv').config();
 
 // ------------------------------------------------------------------------------------------- //
-const restLink = new RestLink({
-    uri: `http://www.omdbapi.com/?apikey=${process.env.REACT_APP_OMDB_API_KEY}&`,
-});
 
-const client = new ApolloClient({
-  link: restLink,
-  cache: new InMemoryCache()
+const dynamicSearch = 'inception';
+
+const query = gql`
+    query titleQuery {
+        Title @rest(type: "Title", path: "t=${dynamicSearch}") {
+            Title
+            Rated
+            Released
+            Runtime
+        }
+    }
+`;
+
+client.query({ query }).then(response => {
+    console.log(response.data);
 });
 
 // ------------------------------------------------------------------------------------------- //
