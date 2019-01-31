@@ -4,18 +4,21 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
+// Pages
+import div from '../pages/div';
+
 // ------------------------------------------------------------------------------------------- //
 // ------------------------------------------------------------------------------------------- //
 
 const RouteContainer = () => {
     return (
         <React.Fragment>
-            <Switch>
-                <Router>
-                    <Route exact path='/' />
+            <Router>
+                <Switch>
+                    <Route exact path='/' component={div} />
                     <Route path='/movie' />
-                </Router>
-            </Switch>
+                </Switch>
+            </Router>
         </React.Fragment>
     )
 };
