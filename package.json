@@ -4,7 +4,10 @@
   "private": true,
   "dependencies": {
     "apollo-boost": "^0.1.27",
+    "apollo-link-rest": "^0.7.0",
+    "dot-env": "^0.0.1",
     "graphql": "^14.1.1",
+    "graphql-tag": "^2.10.1",
     "react": "^16.7.0",
     "react-apollo": "^2.4.1",
     "react-dom": "^16.7.0",
