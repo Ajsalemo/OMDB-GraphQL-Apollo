@@ -2,7 +2,8 @@
 // ------------------------------------------------------------------------------------------- //
 
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import CssBaseline from '@material-ui/core/CssBaseline';
 
 // Pages
 import div from '../pages/div';
@@ -13,12 +14,14 @@ import div from '../pages/div';
 const RouteContainer = () => {
     return (
         <React.Fragment>
-            <Router>
-                <Switch>
-                    <Route exact path='/' component={div} />
-                    <Route path='/movie' />
-                </Switch>
-            </Router>
+            <CssBaseline>
+                <Router>
+                    <Switch>
+                        <Route exact path='/' component={div} />
+                        <Route path='/movie' />
+                    </Switch>
+                </Router>
+            </CssBaseline>
         </React.Fragment>
     )
 };
