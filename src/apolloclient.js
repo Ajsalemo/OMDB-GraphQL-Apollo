@@ -14,7 +14,9 @@ const restLink = new RestLink({
 
 export const client = new ApolloClient({
   link: restLink,
-  cache: new InMemoryCache()
+  cache: new InMemoryCache({
+    addTypename: false
+  })
 });
 
 // ------------------------------------------------------------------------------------------- //

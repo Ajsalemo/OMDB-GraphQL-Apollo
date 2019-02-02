@@ -15,7 +15,7 @@ const dynamicSearch = 'inception';
 
 const query = gql`
     query titleQuery {
-        Title @rest(type: "Title", path: "t=${dynamicSearch}") {
+        TitleSearch @rest(type: "Title", path: "t=${dynamicSearch}") {
             Title
             Rated
             Released
@@ -25,17 +25,17 @@ const query = gql`
 `;
 
 const listDiv = () => {
-    let movieArray = [];
     return (
         <Query query={query}>
             {({ data, loading }) => {
                 if (loading) {
                     return <div>loading...</div>;
                 }
-                return Object.keys(data.Title).map((movies, i) => {
+                // Looping over key/value pairs
+                return Object.entries(data.TitleSearch).map((entry, i) => {
                     return (
                         <div key={i}>
-                            {movies}
+                            <li>{entry[0]}: {entry[1]}</li>
                         </div>
                     )
                 });
