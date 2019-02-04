@@ -8,6 +8,7 @@
     "apollo-boost": "^0.1.27",
     "apollo-link-rest": "^0.7.0",
     "dot-env": "^0.0.1",
+    "formik": "^1.4.3",
     "graphql": "^14.1.1",
     "graphql-tag": "^2.10.1",
     "react": "^16.7.0",
