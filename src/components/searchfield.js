@@ -29,19 +29,15 @@ const styles = () => ({
         '&:hover': {
             cursor: 'pointer'
         }
-    },
-    formikForm: {
-        width: '100%',
-        justifyContent: 'space-evenly',
-        display: 'flex'
     }
 });
 
-let TextInputField = ({ values, handleChange }) => {
+let TextInputField = props => {
+    const { values, handleChange, classes } = props;
     return (
         <React.Fragment>
             <TextField
-                // className={classes.textField}
+                className={classes.textField}
                 id="search"
                 type="search"
                 margin="normal"
@@ -63,7 +59,7 @@ let TextInputField = ({ values, handleChange }) => {
                 }}
             />
             <MenuIcon
-                // className={classes.menuIcon}
+                className={classes.menuIcon}
                 aria-label="Menu"
             />
         </React.Fragment>
@@ -75,7 +71,7 @@ let TextInputField = ({ values, handleChange }) => {
 const SearchField = withFormik({
     mapPropsToValues() {
         return {
-            search: 'test'
+            search: ''
         }
     }
 })(TextInputField);

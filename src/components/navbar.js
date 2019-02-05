@@ -30,11 +30,10 @@ const styles = theme => ({
 
 const Navbar = props => {
     const { classes } = props;
-
     return (
         <div>
             <AppBar position="static" className={classes.appBar}>
-                <Toolbar>
+                <Toolbar style={{ justifyContent: 'space-evenly' }}>
                     <SearchField />
                 </Toolbar>
             </AppBar>
