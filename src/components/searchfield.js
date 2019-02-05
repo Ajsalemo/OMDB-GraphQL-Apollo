@@ -3,7 +3,7 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Formik, Form, Field } from 'formik';
+import { withFormik, Formik, Form, Field } from 'formik';
 
 // Material-UI components
 import SearchIcon from '@material-ui/icons/Search';
@@ -37,17 +37,18 @@ const styles = () => ({
     }
 });
 
-let TextInputField = props => {
-    const { classes } = props;
+let TextInputField = ({ values, handleChange }) => {
     return (
         <React.Fragment>
             <TextField
-                className={classes.textField}
-                id="searchField"
-                label="Search by title"
+                // className={classes.textField}
+                id="search"
                 type="search"
                 margin="normal"
                 variant="filled"
+                name="search"
+                value={values.search}
+                onChange={handleChange}
                 InputProps={{
                     endAdornment: (
                     <InputAdornment position="end">
@@ -62,7 +63,7 @@ let TextInputField = props => {
                 }}
             />
             <MenuIcon
-                className={classes.menuIcon}
+                // className={classes.menuIcon}
                 aria-label="Menu"
             />
         </React.Fragment>
@@ -71,22 +72,13 @@ let TextInputField = props => {
 
 // ------------------------------------------------------------------------------------------- //
 
-const SearchField = props => {
-    const { classes } = props;
-    return (
-        <Formik
-            initialValues={{ search: '' }}
-            render={({ errors, status, touched, isSubmitting }) => (
-                <Form className={classes.formikForm}>
-                    <Field 
-                        name="search"
-                        component={TextInputField}
-                    />
-                </Form>
-            )}
-        />
-    )
-};
+const SearchField = withFormik({
+    mapPropsToValues() {
+        return {
+            search: 'test'
+        }
+    }
+})(TextInputField);
 
 // ------------------------------------------------------------------------------------------- //
 
