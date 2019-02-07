@@ -33,7 +33,7 @@ const Navbar = props => {
     return (
         <div>
             <AppBar position="static" className={classes.appBar}>
-                <Toolbar style={{ justifyContent: 'space-evenly' }}>
+                <Toolbar>
                     <SearchField />
                 </Toolbar>
             </AppBar>
