@@ -5,30 +5,24 @@
 // ------------------------------------------------------------------------------------------- //
 
 import React from 'react';
-import { query } from '../apolloclient/queries';
-import { Query } from "react-apollo";
+import { titleQuery } from '../apolloclient/queries';
+import { Mutation } from "react-apollo";
 
 // ------------------------------------------------------------------------------------------- //
 // ------------------------------------------------------------------------------------------- //
 
 const listDiv = () => {
     return (
-        // <Query query={query}>
-        //     {({ data, loading }) => {
-        //         if (loading) {
-        //             return <div>loading...</div>;
-        //         }
-        //         // Looping over key/value pairs
-        //         return Object.entries(data.TitleSearch).map((entry, i) => {
-        //             return (
-        //                 <div key={i}>
-        //                     <li>{entry[0]}: {entry[1]}</li>
-        //                 </div>
-        //             )
-        //         });
-        //     }}
-        // </Query>
-        <div>TBD</div>
+        <Mutation mutation={titleQuery}>
+            {({ data, loading }) => {
+                if (loading) {
+                    return <div>loading...</div>;
+                }
+                // Looping over key/value pairs
+                console.log(data)
+                return null;
+            }}
+        </Mutation>
     )
 };
 

@@ -89,20 +89,21 @@ let SearchField = compose(
                 search: values || ''
             }
         },
-        handleSubmit: async (search, { props: { mutate }}) => {
+        handleSubmit: async (values, { props: { mutate }, setSubmitting }) => {
             try {
+                console.log(values)
                 // Pass in the value 'search' from the form field
                 // To the titleQuery mutation variable 'dynamicSearch'
                 const { data } = await mutate({
                     variables: {
-                        dynamicSearch: search
+                        dynamicSearch: values.search
                     }
                 });
-                console.log(data.titleQuery)
-            }   catch(error) {
-                    console.log(error);
+                setSubmitting(false);
+            } catch(error) {
+                setSubmitting(false);
+                console.log(error)
             }
-            console.log(search)
         } 
     })
 )(TextInputField);
