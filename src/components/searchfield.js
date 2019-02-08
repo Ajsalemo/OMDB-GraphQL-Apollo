@@ -14,7 +14,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import { withStyles } from '@material-ui/core/styles';
 
 // Apollo-Graphql
-import { titleQuery } from '../apolloclient/queries';
+import { titleQuery, retrieveTitle } from '../apolloclient/queries';
 import { graphql, compose } from "react-apollo";
 
 // ------------------------------------------------------------------------------------------- //
@@ -99,6 +99,7 @@ let SearchField = compose(
                         dynamicSearch: values.search
                     }
                 });
+                console.log(data)
                 setSubmitting(false);
             } catch(error) {
                 setSubmitting(false);

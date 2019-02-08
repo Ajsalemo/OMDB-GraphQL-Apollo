@@ -18,5 +18,16 @@ export const titleQuery =
         }
     `;
 
+export const retrieveTitle =
+    gql`
+        query retrieveTitle($titleInfo: String) {
+            retrieveTitle(Title: $titleInfo) @rest(type: "Title", path: "t={args.Title}") {
+                Title
+                Rated
+                Released
+                Runtime
+            }
+        }
+    `;
 
 // ------------------------------------------------------------------------------------------- //
