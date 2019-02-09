@@ -1,8 +1,8 @@
 // --------------------------------------- Imports ------------------------------------------- //
 // ------------------------------------------------------------------------------------------- //
 
-import { GraphQLObjectType, GraphQLString, GraphQLSchema } from 'graphql';
-import { get } from 'axios';
+const { GraphQLObjectType, GraphQLString, GraphQLSchema } = require('graphql');
+const axios = require('axios');
 
 // ------------------------------------------------------------------------------------------- //
 // ------------------------------------------------------------------------------------------- //
@@ -44,11 +44,15 @@ const RootQuery = new GraphQLObjectType({
     fields: () => ({
         ByTitle: {
             type: TitleType,
-            resolve(parent, args) {
-                return get(`http://www.omdbapi.com/?apikey=${process.env.REACT_APP_OMDB_API_KEY}&t=inception`)
-                    .then(res => {
-                        return res.data
-                    });
+            args: {
+                Title: {
+                    type: GraphQLString
+                }
+            },
+            async resolve(parent, args) {
+                const result = await axios.get(`http://www.omdbapi.com/?apikey=${process.env.REACT_APP_OMDB_API_KEY}&t=${args.Title}`);
+                const { data } = result;
+                return data;
             }
         }
     })
@@ -57,7 +61,7 @@ const RootQuery = new GraphQLObjectType({
 // ------------------------------------------------------------------------------------------- //
 // ------------------------------------------------------------------------------------------- //
 
-export default new GraphQLSchema({
+module.exports = new GraphQLSchema({
     query: RootQuery
 });
 
