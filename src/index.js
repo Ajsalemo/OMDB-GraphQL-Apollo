@@ -8,8 +8,6 @@ import * as serviceWorker from './serviceWorker';
 import { ApolloProvider } from 'react-apollo';
 import { client } from './apolloclient/apolloclient';
 
-require('dotenv').config();
-
 // ------------------------------------------------------------------------------------------- //
 // ------------------------------------------------------------------------------------------- //
 

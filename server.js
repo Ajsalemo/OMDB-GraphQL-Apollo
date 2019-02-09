@@ -1,15 +1,29 @@
 // --------------------------------------- Imports ------------------------------------------- //
 // ------------------------------------------------------------------------------------------- //
 
-const express = require('express');
-const graphqlHTTP = require('express-graphql');
+import express from 'express';
+import graphqlHTTP from 'express-graphql';
+import schema from './schema';
+require('dotenv').config();
+
+// ------------------------------------------------------------------------------------------- //
+// ------------------------------------------------------------------------------------------- //
 
 const app = express();
 
 app.use('/graphql', graphqlHTTP({
-    schema: 'test',
+    schema,
     graphiql: true
 }));
 
-app.listen(3000);
+const PORT = process.env.PORT || 4000;
+
+// ------------------------------------------------------------------------------------------- //
+
+app.listen(PORT, () => console.log(
+    `Server is listening on port: ${PORT}`
+));
+
+// ------------------------------------------------------------------------------------------- //
+
 

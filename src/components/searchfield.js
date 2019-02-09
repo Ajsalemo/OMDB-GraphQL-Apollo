@@ -14,7 +14,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import { withStyles } from '@material-ui/core/styles';
 
 // Apollo-Graphql
-import { titleQuery, retrieveTitle } from '../apolloclient/queries';
+import { titleQuery } from '../apolloclient/queries';
 import { graphql, compose } from "react-apollo";
 
 // ------------------------------------------------------------------------------------------- //

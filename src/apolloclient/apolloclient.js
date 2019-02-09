@@ -9,7 +9,7 @@ import { InMemoryCache } from 'apollo-cache-inmemory'
 // ------------------------------------------------------------------------------------------- //
 
 const restLink = new RestLink({
-    uri: `http://www.omdbapi.com/?apikey=${process.env.REACT_APP_OMDB_API_KEY}&`,
+    uri: "test",
 });
 
 export const client = new ApolloClient({
