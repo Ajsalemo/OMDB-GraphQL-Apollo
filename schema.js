@@ -44,13 +44,8 @@ const RootQuery = new GraphQLObjectType({
     fields: () => ({
         ByTitle: {
             type: TitleType,
-            args: {
-                Title: {
-                    type: GraphQLString
-                }
-            },
             async resolve(parent, args) {
-                const result = await axios.get(`http://www.omdbapi.com/?apikey=${process.env.REACT_APP_OMDB_API_KEY}&t=${args.Title}`);
+                const result = await axios.get(`http://www.omdbapi.com/?apikey=${process.env.REACT_APP_OMDB_API_KEY}&t=inception`);
                 const { data } = result;
                 return data;
             }

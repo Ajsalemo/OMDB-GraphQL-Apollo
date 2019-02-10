@@ -4,12 +4,16 @@
 const express = require('express');
 const graphqlHTTP = require('express-graphql');
 const schema = require('./schema');
+const cors = require('cors');
 require('dotenv').config();
 
 // ------------------------------------------------------------------------------------------- //
 // ------------------------------------------------------------------------------------------- //
 
 const app = express();
+
+// Allowing CORS
+app.use(cors());
 
 app.use('/graphql', graphqlHTTP({
     schema,

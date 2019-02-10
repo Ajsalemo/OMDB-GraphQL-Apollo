@@ -6,26 +6,15 @@ import gql from "graphql-tag";
 // ------------------------------------------------------------------------------------------- //
 // ------------------------------------------------------------------------------------------- //
 
-export const titleQuery = 
+export const RETRIEVE_TITLE =
     gql`
-        mutation titleQuery($dynamicSearch: String) {
-            titleQuery(Title: $dynamicSearch) @rest(type: "Title", path: "t={args.Title}") {
+        query retrieveTitle {
+            ByTitle {
                 Title
-                Rated
+                Year
                 Released
                 Runtime
-            }
-        }
-    `;
-
-export const retrieveTitle =
-    gql`
-        query retrieveTitle($titleInfo: String) {
-            retrieveTitle(Title: $titleInfo) @rest(type: "Title", path: "t={args.Title}") {
-                Title
-                Rated
-                Released
-                Runtime
+                Plot
             }
         }
     `;

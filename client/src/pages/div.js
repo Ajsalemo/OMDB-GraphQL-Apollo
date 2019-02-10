@@ -5,7 +5,7 @@
 // ------------------------------------------------------------------------------------------- //
 
 import React from 'react';
-import { retrieveTitle } from '../apolloclient/queries';
+import { RETRIEVE_TITLE } from '../apolloclient/queries';
 import { Query } from "react-apollo";
 
 // ------------------------------------------------------------------------------------------- //
@@ -14,13 +14,14 @@ import { Query } from "react-apollo";
 const listDiv = () => {
     return (
         <React.Fragment>
-            <Query query={retrieveTitle}>	        
-                {({ data, loading }) => {	           
+            <Query query={RETRIEVE_TITLE}>	        
+                {({ loading, error, data }) => {	           
                     if (loading) {	                
                         return <div>loading...</div>;	                  
-                    }	                
+                    }
+                    if(error) console.log(error);
                     // Looping over key/value pairs	             
-                    // return Object.entries(data.TitleSearch).map((entry, i) => {	                
+                    // return Object.entries(data.RetrieveTitle).map((entry, i) => {	                
                     //     return (	                
                     //         <div key={i}>	           
                     //             <li>{entry[0]}: {entry[1]}</li>	        
@@ -28,10 +29,9 @@ const listDiv = () => {
                     //     )	
                     // });	
                     console.log(data)
-                    return null;
+                    return <h1>Test</h1>;
                 }}	
             </Query>
-            <div>test</div>
         </React.Fragment>
     )
 };

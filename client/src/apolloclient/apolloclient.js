@@ -1,19 +1,14 @@
 // --------------------------------------- Imports ------------------------------------------- //
 // ------------------------------------------------------------------------------------------- //
 
-import { RestLink } from "apollo-link-rest";
-import { ApolloClient } from 'apollo-client'
+import ApolloClient from 'apollo-boost'
 import { InMemoryCache } from 'apollo-cache-inmemory'
 
 // ------------------------------------------------------------------------------------------- //
 // ------------------------------------------------------------------------------------------- //
 
-const restLink = new RestLink({
-    uri: "test",
-});
-
 export const client = new ApolloClient({
-  link: restLink,
+  uri: "http://localhost:4000/graphql",
   cache: new InMemoryCache({
     addTypename: false
   })

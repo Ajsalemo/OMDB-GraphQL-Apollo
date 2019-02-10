@@ -14,8 +14,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import { withStyles } from '@material-ui/core/styles';
 
 // Apollo-Graphql
-import { titleQuery } from '../apolloclient/queries';
-import { graphql, compose } from "react-apollo";
+import { compose } from "react-apollo";
 
 // ------------------------------------------------------------------------------------------- //
 // ------------------------------------------------------------------------------------------- //
@@ -80,7 +79,6 @@ let TextInputField = props => {
 // ------------------------------------------------------------------------------------------- //
 
 let SearchField = compose(
-    graphql(titleQuery),
     withFormik({
         mapPropsToValues({ values }) {
             // If props being passed into search exists, used that
@@ -92,14 +90,6 @@ let SearchField = compose(
         handleSubmit: async (values, { props: { mutate }, setSubmitting }) => {
             try {
                 console.log(values)
-                // Pass in the value 'search' from the form field
-                // To the titleQuery mutation variable 'dynamicSearch'
-                const { data } = await mutate({
-                    variables: {
-                        dynamicSearch: values.search
-                    }
-                });
-                console.log(data)
                 setSubmitting(false);
             } catch(error) {
                 setSubmitting(false);
