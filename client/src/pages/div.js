@@ -5,7 +5,7 @@
 // ------------------------------------------------------------------------------------------- //
 
 import React from 'react';
-import { RETRIEVE_TITLE } from '../apolloclient/queries';
+import { RETRIEVE_TITLE, RETRIEVE_SEARCH } from '../apolloclient/queries';
 import { Query } from "react-apollo";
 
 // ------------------------------------------------------------------------------------------- //

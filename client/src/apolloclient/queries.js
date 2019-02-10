@@ -19,4 +19,17 @@ export const RETRIEVE_TITLE =
         }
     `;
 
+export const RETRIEVE_SEARCH =
+    gql`
+        query retrieveSearch {
+            BySearch {
+                Title
+                Year
+                Released
+                Runtime
+                Plot
+            }
+        }
+    `;
+
 // ------------------------------------------------------------------------------------------- //
