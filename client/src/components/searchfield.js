@@ -15,6 +15,10 @@ import { withStyles } from '@material-ui/core/styles';
 
 // Apollo-Graphql
 import { compose } from "react-apollo";
+import { client } from '../apolloclient/apolloclient';
+
+// Queries
+import { RETRIEVE_TITLE } from '../apolloclient/queries';
 
 // ------------------------------------------------------------------------------------------- //
 // ------------------------------------------------------------------------------------------- //
@@ -87,14 +91,16 @@ let SearchField = compose(
                 search: values || ''
             }
         },
-        handleSubmit: async (values, { props: { mutate }, setSubmitting }) => {
-            try {
-                console.log(values)
-                setSubmitting(false);
-            } catch(error) {
-                setSubmitting(false);
-                console.log(error)
-            }
+        handleSubmit: async (values, { setSubmitting }) => {
+            const result = await client.query({ 
+                query: RETRIEVE_TITLE,
+                variables: {
+                    singleTitle: values.search
+                }
+            });
+            console.log(values)
+            console.log(result)
+            setSubmitting(false)
         } 
     })
 )(TextInputField);
@@ -108,10 +114,10 @@ SearchField.propTypes = {
 // ------------------------------------------------------------------------------------------- //
 // ------------------------------------------------------------------------------------------- //
 
-TextInputField =
-    withStyles(styles)(TextInputField);
+TextInputField = withStyles(styles)(TextInputField);
+SearchField = withStyles(styles)(SearchField);
 
-export default withStyles(styles)(SearchField);
+export default SearchField;
 
 // ------------------------------------------------------------------------------------------- //
 // ------------------------------------------------------------------------------------------- //

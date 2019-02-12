@@ -8,8 +8,8 @@ import gql from "graphql-tag";
 
 export const RETRIEVE_TITLE =
     gql`
-        query retrieveTitle {
-            ByTitle {
+        query retrieveTitle($singleTitle: String) {
+            ByTitle(Title: $singleTitle) {
                 Title
                 Year
                 Released
