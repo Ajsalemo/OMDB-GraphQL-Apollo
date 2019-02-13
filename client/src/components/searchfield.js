@@ -14,7 +14,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import { withStyles } from '@material-ui/core/styles';
 
 // Apollo-Graphql
-import { compose } from "react-apollo";
+import { compose, graphql } from "react-apollo";
 import { client } from '../apolloclient/apolloclient';
 
 // Queries
@@ -82,7 +82,7 @@ let TextInputField = props => {
 
 // ------------------------------------------------------------------------------------------- //
 
-let SearchField = compose(
+let SearchField = 
     withFormik({
         mapPropsToValues({ values }) {
             // If props being passed into search exists, used that
@@ -102,8 +102,7 @@ let SearchField = compose(
             console.log(result)
             setSubmitting(false)
         } 
-    })
-)(TextInputField);
+})(TextInputField);
 
 // ------------------------------------------------------------------------------------------- //
 

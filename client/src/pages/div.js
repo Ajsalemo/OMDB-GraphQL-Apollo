@@ -6,16 +6,16 @@
 
 import React from 'react';
 import { RETRIEVE_TITLE } from '../apolloclient/queries';
-import { Query } from "react-apollo";
+import { Query, graphql } from "react-apollo";
+import { client } from '../apolloclient/apolloclient';
 
-// ------------------------------------------------------------------------------------------- //
 // ------------------------------------------------------------------------------------------- //
 
 const listDiv = () => {
     return (
         <React.Fragment>
-            <Query query={RETRIEVE_TITLE}>	        
-                {({ loading, error, data }) => {	           
+            <Query query={RETRIEVE_TITLE}  variables={{ singleTitle: 'titanic' }} notifyOnNetworkStatusChange>	        
+                {({ loading, error, data, networkStatus }) => {	           
                     if (loading) {	                
                         return <div>loading...</div>;	                  
                     }
@@ -29,7 +29,8 @@ const listDiv = () => {
                     //     )	
                     // });	
                     console.log(data)
-                    return <div>rwar</div>
+                    console.log(client)
+                    return <div>{data.ByTitle.Title}</div>
                 }}	
             </Query>
         </React.Fragment>
@@ -39,8 +40,7 @@ const listDiv = () => {
 // ------------------------------------------------------------------------------------------- //
 // ------------------------------------------------------------------------------------------- //
 
-export default listDiv;
-
+export default graphql(RETRIEVE_TITLE)(listDiv);
 
 // ------------------------------------------------------------------------------------------- //
 // ------------------------------------------------------------------------------------------- //
