@@ -6,16 +6,15 @@
 
 import React from 'react';
 import { RETRIEVE_TITLE } from '../apolloclient/queries';
-import { Query, graphql } from "react-apollo";
-import { client } from '../apolloclient/apolloclient';
+import { Query } from "react-apollo";
 
 // ------------------------------------------------------------------------------------------- //
 
 const listDiv = () => {
     return (
         <React.Fragment>
-            <Query query={RETRIEVE_TITLE}  variables={{ singleTitle: 'titanic' }} notifyOnNetworkStatusChange>	        
-                {({ loading, error, data, networkStatus }) => {	           
+            <Query query={RETRIEVE_TITLE} fetchPolicy="cache-and-network">	        
+                {({ loading, error, data }) => {	           
                     if (loading) {	                
                         return <div>loading...</div>;	                  
                     }
@@ -29,8 +28,7 @@ const listDiv = () => {
                     //     )	
                     // });	
                     console.log(data)
-                    console.log(client)
-                    return <div>{data.ByTitle.Title}</div>
+                    return null;
                 }}	
             </Query>
         </React.Fragment>
@@ -40,7 +38,7 @@ const listDiv = () => {
 // ------------------------------------------------------------------------------------------- //
 // ------------------------------------------------------------------------------------------- //
 
-export default graphql(RETRIEVE_TITLE)(listDiv);
+export default listDiv;
 
 // ------------------------------------------------------------------------------------------- //
 // ------------------------------------------------------------------------------------------- //

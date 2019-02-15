@@ -14,7 +14,6 @@ import MenuIcon from '@material-ui/icons/Menu';
 import { withStyles } from '@material-ui/core/styles';
 
 // Apollo-Graphql
-import { compose, graphql } from "react-apollo";
 import { client } from '../apolloclient/apolloclient';
 
 // Queries
@@ -66,7 +65,7 @@ let TextInputField = props => {
                                 <SearchIcon
                                     aria-label="Submit form"
                                 />
-                            </IconButton>
+                            </IconButton> 
                         </InputAdornment>
                         ),
                     }}
@@ -101,7 +100,7 @@ let SearchField =
             console.log(values)
             console.log(result)
             setSubmitting(false)
-        } 
+        }
 })(TextInputField);
 
 // ------------------------------------------------------------------------------------------- //
