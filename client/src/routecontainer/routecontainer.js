@@ -9,7 +9,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import div from '../pages/div';
 
 // Components
-import Navbar from '../components/navbar';
+import Container from '../components/container';
 
 // ------------------------------------------------------------------------------------------- //
 // ------------------------------------------------------------------------------------------- //
@@ -18,7 +18,7 @@ const RouteContainer = () => {
     return (
         <React.Fragment>
             <CssBaseline>
-                <Navbar />
+                <Container />
                 <Router>
                     <Switch>
                         <Route exact path='/' component={div} />

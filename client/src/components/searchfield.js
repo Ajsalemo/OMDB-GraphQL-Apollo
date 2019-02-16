@@ -3,7 +3,7 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withFormik, Form } from 'formik';
+import { Form } from 'formik';
 
 // Material-UI components
 import SearchIcon from '@material-ui/icons/Search';
@@ -13,16 +13,10 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import { withStyles } from '@material-ui/core/styles';
 
-// Apollo-Graphql
-import { client } from '../apolloclient/apolloclient';
-
-// Queries
-import { RETRIEVE_TITLE } from '../apolloclient/queries';
-
 // ------------------------------------------------------------------------------------------- //
 // ------------------------------------------------------------------------------------------- //
 
-const styles = () => ({
+const styles = theme => ({
     textField: {
         width: '70%',
         backgroundColor: '#fff',
@@ -43,8 +37,10 @@ const styles = () => ({
     }
 });
 
-let TextInputField = props => {
-    const { values, classes, handleChange } = props;
+// ------------------------------------------------------------------------------------------- //
+
+let Searchfield = props => {
+    const { values, classes, handleChange, submittedValue } = props;
     return (
         <React.Fragment>
             <Form className={classes.form}>
@@ -56,12 +52,17 @@ let TextInputField = props => {
                     variant="filled"
                     name="search"
                     placeholder="Search by title"
-                    value={values.search}
+                    value={values}
                     onChange={handleChange}
                     InputProps={{
                         endAdornment: (
                         <InputAdornment position="end">
-                            <IconButton type="submit">
+                            <IconButton 
+                                type="submit"
+                                // Prop that saves the value of Formik's handleSubmit to local state in container
+                                // When submitting the form
+                                onClick={submittedValue}
+                            >
                                 <SearchIcon
                                     aria-label="Submit form"
                                 />
@@ -81,41 +82,20 @@ let TextInputField = props => {
 
 // ------------------------------------------------------------------------------------------- //
 
-let SearchField = 
-    withFormik({
-        mapPropsToValues({ values }) {
-            // If props being passed into search exists, used that
-            // Else return an empty field by default
-            return {
-                search: values || ''
-            }
-        },
-        handleSubmit: async (values, { setSubmitting }) => {
-            const result = await client.query({ 
-                query: RETRIEVE_TITLE,
-                variables: {
-                    singleTitle: values.search
-                }
-            });
-            console.log(values)
-            console.log(result)
-            setSubmitting(false)
-        }
-})(TextInputField);
+
 
 // ------------------------------------------------------------------------------------------- //
 
-SearchField.propTypes = {
+Searchfield.propTypes = {
     classes: PropTypes.object.isRequired
 };
 
 // ------------------------------------------------------------------------------------------- //
 // ------------------------------------------------------------------------------------------- //
 
-TextInputField = withStyles(styles)(TextInputField);
-SearchField = withStyles(styles)(SearchField);
+Searchfield = withStyles(styles)(Searchfield);
 
-export default SearchField;
+export default Searchfield;
 
 // ------------------------------------------------------------------------------------------- //
 // ------------------------------------------------------------------------------------------- //

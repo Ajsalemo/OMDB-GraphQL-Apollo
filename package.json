@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/Ajsalemo/OMDB-GraphQL-Apollo#readme",
   "dependencies": {
+    "apollo-cache-persist": "^0.1.1",
     "apollo-link-http": "^1.5.11",
     "axios": "^0.18.0",
     "body-parser": "^1.18.3",

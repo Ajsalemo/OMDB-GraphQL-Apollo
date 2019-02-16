@@ -10,25 +10,23 @@ import { Query } from "react-apollo";
 
 // ------------------------------------------------------------------------------------------- //
 
-const listDiv = () => {
+const ListDiv = ({ singleTitle }) => {
     return (
         <React.Fragment>
-            <Query query={RETRIEVE_TITLE} fetchPolicy="cache-and-network">	        
+            <Query query={RETRIEVE_TITLE} variables={{ singleTitle: singleTitle }} fetchPolicy='cache-and-network'>	        
                 {({ loading, error, data }) => {	           
                     if (loading) {	                
                         return <div>loading...</div>;	                  
                     }
                     if(error) console.log(error);
                     // Looping over key/value pairs	             
-                    // return Object.entries(data.RetrieveTitle).map((entry, i) => {	                
-                    //     return (	                
-                    //         <div key={i}>	           
-                    //             <li>{entry[0]}: {entry[1]}</li>	        
-                    //         </div>	
-                    //     )	
-                    // });	
-                    console.log(data)
-                    return null;
+                    return Object.entries(data.ByTitle).map((entry, i) => {	                
+                        return (	                
+                            <div key={i}>	           
+                                <li>{entry[0]}: {entry[1]}</li>	        
+                            </div>	
+                        )	
+                    });	
                 }}	
             </Query>
         </React.Fragment>
@@ -38,7 +36,7 @@ const listDiv = () => {
 // ------------------------------------------------------------------------------------------- //
 // ------------------------------------------------------------------------------------------- //
 
-export default listDiv;
+export default ListDiv;
 
 // ------------------------------------------------------------------------------------------- //
 // ------------------------------------------------------------------------------------------- //

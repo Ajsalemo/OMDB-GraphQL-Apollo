@@ -6,10 +6,10 @@ import gql from "graphql-tag";
 // ------------------------------------------------------------------------------------------- //
 // ------------------------------------------------------------------------------------------- //
 
-export const RETRIEVE_TITLE =
+export const RETRIEVE_SEARCH =
     gql`
-        query retrieveTitle($singleTitle: String) {
-            ByTitle(Title: $singleTitle) {
+        query retrieveSearch {
+            BySearch {
                 Title
                 Year
                 Released
@@ -19,10 +19,10 @@ export const RETRIEVE_TITLE =
         }
     `;
 
-export const RETRIEVE_SEARCH =
+export const RETRIEVE_TITLE =
     gql`
-        query retrieveSearch {
-            BySearch {
+        query retrieveTitle($singleTitle: String) {
+            ByTitle(Title: $singleTitle) {
                 Title
                 Year
                 Released
