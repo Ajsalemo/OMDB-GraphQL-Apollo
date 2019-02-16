@@ -82,8 +82,11 @@ const RootQuery = new GraphQLObjectType({
         },
         BySearch: {
             type: new GraphQLList(SearchType),
+            args: {
+                Title: { type: GraphQLString }
+            },
             async resolve(parent, args) {
-                const result = await axios.get(`http://www.omdbapi.com/?apikey=${process.env.REACT_APP_OMDB_API_KEY}&s=ghost`);
+                const result = await axios.get(`http://www.omdbapi.com/?apikey=${process.env.REACT_APP_OMDB_API_KEY}&s=${args.Title}`);
                 const { data } = result;
                 return data.Search;
             }
