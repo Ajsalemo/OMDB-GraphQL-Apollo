@@ -6,7 +6,7 @@ import { RETRIEVE_SEARCH } from '../apolloclient/queries';
 import { Query } from "react-apollo";
 
 // Components
-import ImageCard from '../components/imagecard';
+import ImageCard from './imagecard';
 
 // Material-UI components
 import CircularProgress from '@material-ui/core/CircularProgress';

@@ -12,7 +12,7 @@ import { withFormik } from 'formik';
 
 // React components
 import TextInputField from './searchfield';
-import ListDiv from '../pages/div';
+import ListDiv from '../components/listdiv';
 
 
 // ------------------------------------------------------------------------------------------- //
