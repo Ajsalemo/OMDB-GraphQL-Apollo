@@ -10,6 +10,7 @@ import ImageCard from './imagecard';
 
 // Material-UI components
 import CircularProgress from '@material-ui/core/CircularProgress';
+import { Grid } from '@material-ui/core';
 
 // ------------------------------------------------------------------------------------------- //
 // ------------------------------------------------------------------------------------------- //
@@ -25,14 +26,17 @@ const ListDiv = ({ singleTitle }) => {
                     if(error) console.log(error);
                     
                     console.log(data)
+                    
                     return data.BySearch.map((titles, i) => {
                         return (
-                            <ImageCard 
-                                key={i}
-                                title={titles.Title}
-                                poster={titles.Poster}
-                                year={titles.Year}
-                            />
+                            <Grid item style={{ margin: '3em 1em' }} key={i}>
+                                <ImageCard 
+                                    key={i}
+                                    title={titles.Title}
+                                    poster={titles.Poster}
+                                    year={titles.Year}
+                                />
+                            </Grid>
                         )
                     })
                 }}	

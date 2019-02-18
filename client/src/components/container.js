@@ -9,6 +9,7 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import { withStyles } from '@material-ui/core/styles';
 import { withFormik } from 'formik';
+import Grid from '@material-ui/core/Grid';
 
 // React components
 import TextInputField from './searchfield';
@@ -25,6 +26,9 @@ const styles = theme => ({
         [theme.breakpoints.up(599)]: {
             height: '3.7em',
         }
+    },
+    gridContainer: {
+        justifyContent: 'space-around'
     }
 });
 
@@ -65,9 +69,11 @@ class Container extends Component {
                     </Toolbar>
                 </AppBar>
     
+            <Grid container className={classes.gridContainer}>
                 <ListDiv
                     singleTitle={submittedValue}
                 />
+            </Grid>
             </React.Fragment>
         )
     }

@@ -27,7 +27,7 @@ const styles = () => ({
 });
 
 const ImageCard = props => {
-    const { poster, title, year, type, classes } = props;
+    const { poster, title, year, classes } = props;
     return (
         <React.Fragment>
             <Paper className={classes.card}>
