@@ -21,26 +21,30 @@ const styles = () => ({
         width: 'fit-content'
     },
     cardMedia: {
-        height: 'auto',
-        width: 'auto'
+        border: '4px solid #fff'
+    },
+    content: {
+        textAlign: 'center'
     }
 });
 
 const ImageCard = props => {
-    const { poster, title, year, classes } = props;
+    const { poster, title, year, classes, error } = props;
     return (
         <React.Fragment>
-            <Paper className={classes.card}>
+            <Paper className={classes.card} elevation={17}>
                 <Card>
                     <CardActionArea>
                         <CardMedia
                             component="img"
                             title={title}
                             image={poster}
+                            className={classes.cardMedia}
                         />
-                        <CardContent>
+                        <CardContent className={classes.content}>
                             <Typography gutterBottom variant="subtitle1">
-                                {title}
+                                <b>{title}</b>
+                                <span>{error}</span>
                             </Typography>
                             <Typography component="p">
                                 {year}

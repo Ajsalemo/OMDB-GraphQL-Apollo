@@ -14,6 +14,7 @@ export const RETRIEVE_SEARCH =
                 Year
                 Type
                 Poster
+                Plot
             }
         }
     `;

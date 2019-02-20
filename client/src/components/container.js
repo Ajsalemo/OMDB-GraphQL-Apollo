@@ -2,6 +2,7 @@
 // ------------------------------------------------------------------------------------------- //
 
 import React, { Component } from 'react';
+import { withRouter } from "react-router";
 import PropTypes from 'prop-types';
 
 // Material-UI components
@@ -21,14 +22,15 @@ import ListDiv from '../components/listdiv';
 
 const styles = theme => ({
     appBar: {
-        backgroundColor: '#7b85a9',
+        backgroundColor: '#57577b',
         height: '3.5em',
         [theme.breakpoints.up(599)]: {
             height: '3.7em',
         }
     },
     gridContainer: {
-        justifyContent: 'space-around'
+        justifyContent: 'space-around',
+        backgroundColor: '#d6c0c0'
     }
 });
 
@@ -104,7 +106,7 @@ Container.propTypes = {
 
 SearchField = withStyles(styles)(SearchField);
 
-export default SearchField;
+export default withRouter(SearchField);
 
 // ------------------------------------------------------------------------------------------- //
 // ------------------------------------------------------------------------------------------- //

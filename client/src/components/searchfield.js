@@ -23,6 +23,11 @@ const styles = theme => ({
         margin: '0',
         height: '2.7em'
     },
+    inputProp: {
+        input: {
+            WebkitBoxShadow: "0 0 0 1000px white inset"
+        }
+    },
     menuIcon: {
         height: '1.5em',
         width: '1.5em',

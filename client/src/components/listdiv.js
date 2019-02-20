@@ -7,6 +7,7 @@ import { Query } from "react-apollo";
 
 // Components
 import ImageCard from './imagecard';
+import Error from './error';
 
 // Material-UI components
 import CircularProgress from '@material-ui/core/CircularProgress';
@@ -25,9 +26,13 @@ const ListDiv = ({ singleTitle }) => {
                     }
                     if(error) console.log(error);
                     
-                    console.log(data)
-                    
-                    return data.BySearch.map((titles, i) => {
+                    return data.BySearch === null 
+                        ? 
+                    <Error
+                        singleTitle={singleTitle}
+                    />
+                        : 
+                    data.BySearch.map((titles, i) => {
                         return (
                             <Grid item style={{ margin: '3em 1em' }} key={i}>
                                 <ImageCard 

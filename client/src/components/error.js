@@ -2,33 +2,49 @@
 // ------------------------------------------------------------------------------------------- //
 
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import CssBaseline from '@material-ui/core/CssBaseline';
+
+//Material-UI components
+import { Paper } from '@material-ui/core';
+import { withStyles } from '@material-ui/core/styles';
 
 // Components
-import Container from '../components/container';
+import ImageCard from './imagecard';
+
+// Images
+import errorgif from '../images/errorgif.gif'
 
 // ------------------------------------------------------------------------------------------- //
 // ------------------------------------------------------------------------------------------- //
 
-const RouteContainer = () => {
+const styles = () => ({
+    errorContainer: {
+        height: 'fit-content',
+        marginTop: '0.2em'
+    }
+});
+
+// ------------------------------------------------------------------------------------------- //
+
+const Error = props => {
+    const { classes, singleTitle } = props;
     return (
-        <React.Fragment>
-            <CssBaseline>
-                <Router>
-                    <Switch>
-                        <Route exact path='/' component={Container} />
-                    </Switch>
-                </Router>
-            </CssBaseline>
-        </React.Fragment>
+        <Paper className={classes.errorContainer}>
+            <ImageCard 
+                poster={errorgif}
+                error
+                    ={
+                        `Oops, it looks like '${singleTitle}' wasn't found`
+                    }
+            />
+        </Paper>
     )
-};
+}
 
 // ------------------------------------------------------------------------------------------- //
 // ------------------------------------------------------------------------------------------- //
 
-export default RouteContainer;
+export default withStyles(styles)(Error);
 
 // ------------------------------------------------------------------------------------------- //
 // ------------------------------------------------------------------------------------------- //
+

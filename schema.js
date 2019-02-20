@@ -46,6 +46,10 @@ const searchQuery = {
     Poster: {
         type: GraphQLString,
         description: 'Movie poster'
+    },
+    Plot: {
+        type: GraphQLString,
+        description: 'Movie plot'
     }
 };
 
