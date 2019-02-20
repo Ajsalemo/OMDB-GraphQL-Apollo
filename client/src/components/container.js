@@ -30,7 +30,8 @@ const styles = theme => ({
     },
     gridContainer: {
         justifyContent: 'space-around',
-        backgroundColor: '#d6c0c0'
+        alignItems: 'center',
+        height: '100vh'
     }
 });
 

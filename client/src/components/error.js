@@ -20,6 +20,9 @@ const styles = () => ({
     errorContainer: {
         height: 'fit-content',
         marginTop: '0.2em'
+    },
+    errorComponent: {
+        width: '24em'
     }
 });
 
@@ -29,13 +32,15 @@ const Error = props => {
     const { classes, singleTitle } = props;
     return (
         <Paper className={classes.errorContainer}>
-            <ImageCard 
-                poster={errorgif}
-                error
-                    ={
-                        `Oops, it looks like '${singleTitle}' wasn't found`
-                    }
-            />
+            <div className={classes.errorComponent}>
+                <ImageCard 
+                    poster={errorgif}
+                    error
+                        ={
+                            `Oops, it looks like '${singleTitle}' wasn't found`
+                        }
+                />
+            </div>
         </Paper>
     )
 }
