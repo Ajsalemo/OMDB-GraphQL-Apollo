@@ -13,6 +13,9 @@ import Error from './error';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import { Grid } from '@material-ui/core';
 
+// Images
+import imagenotfound from '../images/imagenotfound.png';
+
 // ------------------------------------------------------------------------------------------- //
 // ------------------------------------------------------------------------------------------- //
 
@@ -38,7 +41,7 @@ const ListDiv = ({ singleTitle }) => {
                                 <ImageCard 
                                     key={i}
                                     title={titles.Title}
-                                    poster={titles.Poster}
+                                    poster={titles.Poster === 'N/A' ? imagenotfound : titles.Poster}
                                     year={titles.Year}
                                 />
                             </Grid>

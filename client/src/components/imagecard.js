@@ -33,25 +33,25 @@ const ImageCard = props => {
     return (
         <React.Fragment>
             <Paper className={classes.card} elevation={17}>
-                <Card>
-                    <CardActionArea>
-                        <CardMedia
-                            component="img"
-                            title={title}
-                            image={poster}
-                            className={classes.cardMedia}
-                        />
-                        <CardContent className={classes.content}>
-                            <Typography gutterBottom variant="subtitle1">
-                                <b>{title}</b>
-                                <span>{error}</span>
-                            </Typography>
-                            <Typography component="p">
-                                {year}
-                            </Typography>
-                        </CardContent>
-                    </CardActionArea>
-                </Card>
+                    <Card>
+                        <CardActionArea>
+                            <CardMedia
+                                component="img"
+                                title={title}
+                                image={poster}
+                                className={classes.cardMedia}
+                            />
+                            <CardContent className={classes.content}>
+                                <Typography gutterBottom variant="subtitle1">
+                                    <b>{title}</b>
+                                    <span>{error}</span>
+                                </Typography>
+                                <Typography component="p">
+                                    {year}
+                                </Typography>
+                            </CardContent>
+                        </CardActionArea>
+                    </Card>
             </Paper>
         </React.Fragment>
     )

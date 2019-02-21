@@ -36,9 +36,7 @@ const Error = props => {
                 <ImageCard 
                     poster={errorgif}
                     error
-                        ={
-                            `Oops, it looks like '${singleTitle}' wasn't found`
-                        }
+                        ={`Oops, it looks like '${singleTitle}' wasn't found`}
                 />
             </div>
         </Paper>
