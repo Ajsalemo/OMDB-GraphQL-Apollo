@@ -15,6 +15,7 @@ import Grid from '@material-ui/core/Grid';
 // React components
 import TextInputField from './searchfield';
 import ListDiv from '../components/listdiv';
+import { Typography } from '@material-ui/core';
 
 
 // ------------------------------------------------------------------------------------------- //
@@ -28,10 +29,16 @@ const styles = theme => ({
             height: '3.7em',
         }
     },
+    lowerAppBar: {
+        backgroundColor: '#3f51b540',
+    },
+    lowerAppBarToolBar: {
+        justifyContent: 'center'
+    },
     gridContainer: {
         justifyContent: 'space-around',
         alignItems: 'center',
-        height: '100vh'
+        backgroundColor: '#c2c8e647'
     }
 });
 
@@ -72,12 +79,19 @@ class Container extends Component {
                         />
                     </Toolbar>
                 </AppBar>
+                <AppBar position="static" className={classes.lowerAppBar}>
+                    <Toolbar className={classes.lowerAppBarToolBar}>
+                        <Typography variant="h4">
+                            OMDb Movie Application
+                        </Typography>
+                    </Toolbar>
+                </AppBar>
     
-            <Grid container className={classes.gridContainer}>
-                <ListDiv
-                    singleTitle={submittedValue}
-                />
-            </Grid>
+                <Grid container className={classes.gridContainer}>
+                    <ListDiv
+                        singleTitle={submittedValue}
+                    />
+                </Grid>
             </React.Fragment>
         )
     }
