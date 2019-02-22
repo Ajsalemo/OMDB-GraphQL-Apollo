@@ -57,7 +57,7 @@ class Container extends Component {
     };
 
     render() {
-        const { values, classes, handleChange } = this.props;
+        const { values, classes, handleChange, isSubmitting } = this.props;
         const { submittedValue } = this.state;
         return (
             <React.Fragment>
@@ -68,6 +68,7 @@ class Container extends Component {
                             values={values.search}
                             handleChange={handleChange}
                             submittedValue={() => this.passSetValueToQuery()}
+                            isSubmitting={isSubmitting || !values.search}
                         />
                     </Toolbar>
                 </AppBar>

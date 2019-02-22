@@ -45,7 +45,7 @@ const styles = theme => ({
 // ------------------------------------------------------------------------------------------- //
 
 let Searchfield = props => {
-    const { values, classes, handleChange, submittedValue } = props;
+    const { values, classes, handleChange, submittedValue, isSubmitting } = props;
     return (
         <React.Fragment>
             <Form className={classes.form}>
@@ -67,6 +67,7 @@ let Searchfield = props => {
                                 // Prop that saves the value of Formik's handleSubmit to local state in container
                                 // When submitting the form
                                 onClick={submittedValue}
+                                disabled={isSubmitting}
                             >
                                 <SearchIcon
                                     aria-label="Submit form"
