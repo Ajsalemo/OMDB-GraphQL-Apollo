@@ -27,6 +27,10 @@ const movieQuery = {
     Plot: {
         type: GraphQLString,
         description: 'Plot description'
+    },
+    imdbID: {
+        type: GraphQLString,
+        description: 'Movie plot'
     }
 };
 
@@ -47,7 +51,7 @@ const searchQuery = {
         type: GraphQLString,
         description: 'Movie poster'
     },
-    Plot: {
+    imdbID: {
         type: GraphQLString,
         description: 'Movie plot'
     }
@@ -76,10 +80,10 @@ const RootQuery = new GraphQLObjectType({
         ByTitle: {
             type: TitleType,
             args: {
-                Title: { type: GraphQLString }
+                imdbID: { type: GraphQLString }
             },
             async resolve(parent, args) {
-                const result = await axios.get(`http://www.omdbapi.com/?apikey=${process.env.REACT_APP_OMDB_API_KEY}&t=${args.Title}`);
+                const result = await axios.get(`http://www.omdbapi.com/?apikey=${process.env.REACT_APP_OMDB_API_KEY}&i=${args.imdbID}`);
                 const { data } = result;
                 return data;
             }

@@ -51,7 +51,7 @@ const ListDiv = props => {
                         return (
                             <Grid item style={{ margin: '3em 1em' }} key={i}>
                                 <ImageCard 
-                                    key={i}
+                                    key={titles.imdbID}
                                     title={titles.Title}
                                     poster={titles.Poster === 'N/A' ? imagenotfound : titles.Poster}
                                     year={titles.Year}

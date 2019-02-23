@@ -14,20 +14,21 @@ export const RETRIEVE_SEARCH =
                 Year
                 Type
                 Poster
-                Plot
+                imdbID
             }
         }
     `;
 
 export const RETRIEVE_TITLE =
     gql`
-        query retrieveTitle($singleTitle: String) {
-            ByTitle(Title: $singleTitle) {
+        query retrieveTitle($imdbID: String) {
+            ByTitle(Title: $imdbID) {
                 Title
                 Year
                 Released
                 Runtime
                 Plot
+                imdbID
             }
         }
     `;
