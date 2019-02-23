@@ -82,9 +82,7 @@ class ImageCard extends Component {
                 <ModalDialog
                     open={open}
                     handleClose={() => this.handleClose()}
-                    title={title}
-                    image={poster}
-                    year={year}
+                    imdbID={imdbID}
                 />
             </React.Fragment>
         )

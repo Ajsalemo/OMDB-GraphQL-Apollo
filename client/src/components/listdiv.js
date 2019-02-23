@@ -55,6 +55,7 @@ const ListDiv = props => {
                                     title={titles.Title}
                                     poster={titles.Poster === 'N/A' ? imagenotfound : titles.Poster}
                                     year={titles.Year}
+                                    imdbID={titles.imdbID}
                                 />
                             </Grid>
                         )

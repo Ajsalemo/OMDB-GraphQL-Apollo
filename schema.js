@@ -28,9 +28,29 @@ const movieQuery = {
         type: GraphQLString,
         description: 'Plot description'
     },
+    Poster: {
+        type: GraphQLString,
+        description: 'Movie poster'
+    },
+    Rated: {
+        type: GraphQLString,
+        description: 'Movie rating'
+    },
+    Genre: {
+        type: GraphQLString,
+        description: 'Movie Genre'
+    },
+    Director: {
+        type: GraphQLString,
+        description: 'Movie Director'
+    },
+    Writer: {
+        type: GraphQLString,
+        description: 'Movie Writer'
+    },
     imdbID: {
         type: GraphQLString,
-        description: 'Movie plot'
+        description: 'Movie ID'
     }
 };
 

@@ -21,13 +21,18 @@ export const RETRIEVE_SEARCH =
 
 export const RETRIEVE_TITLE =
     gql`
-        query retrieveTitle($imdbID: String) {
-            ByTitle(Title: $imdbID) {
+        query retrieveTitle($titleId: String) {
+            ByTitle(imdbID: $titleId) {
                 Title
                 Year
                 Released
+                Rated
                 Runtime
                 Plot
+                Poster
+                Genre
+                Director
+                Writer
                 imdbID
             }
         }
