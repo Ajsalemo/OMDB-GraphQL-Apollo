@@ -44,7 +44,8 @@ const styles = () => ({
         padding: '0.6em 0'
     },
     dialogList: {
-        borderTop: '1px solid #000'
+        borderTop: '1px solid #000',
+        borderBottom: '1px solid #000'
     },
     dialogInfoList: {
         padding: '0'
@@ -60,6 +61,13 @@ const styles = () => ({
     },
     dialogPaperImage: {
         border: '4px solid #000'
+    },
+    dialogContent: {
+        borderLeft: '1px solid #000',
+        paddingBottom: '0'
+    },
+    dialogTitle: {
+        paddingBottom: '0'
     }
 });
 
@@ -89,7 +97,7 @@ const ModalDialog = props => {
                             >
                                 <Paper className={classes.dialogPaper}>
                                     <Grid item xs={6} className={classes.dialogImageGrid}>
-                                        <Paper className={classes.dialogPaperImage}>
+                                        <Paper className={classes.dialogPaperImage} elevation={17}>
                                             <CardMedia
                                                 component="img"
                                                 title={data.ByTitle.Title}
@@ -99,8 +107,8 @@ const ModalDialog = props => {
                                         </Paper>
                                     </Grid>
                                     <Grid item xs={6}>
-                                        <DialogTitle>{data.ByTitle.Title}</DialogTitle>
-                                        <DialogContent style={{ borderLeft: '1px solid #000' }}>
+                                        <DialogTitle className={classes.dialogTitle}>{data.ByTitle.Title}</DialogTitle>
+                                        <DialogContent className={classes.dialogContent}>
                                             <DialogContentText className={classes.dialogYear} gutterBottom>
                                                 <b>{data.ByTitle.Year}</b>
                                             </DialogContentText>
@@ -125,6 +133,12 @@ const ModalDialog = props => {
                                                 </ListItem>
                                                 <ListItem className={classes.dialogInfoList}>
                                                     <ListItemText primary="Writer" secondary={data.ByTitle.Writer} />
+                                                </ListItem>
+                                                <ListItem className={classes.dialogInfoList}>
+                                                    <ListItemText primary="Language" secondary={data.ByTitle.Language} />
+                                                </ListItem>
+                                                <ListItem className={classes.dialogInfoList}>
+                                                    <ListItemText primary="Awards" secondary={data.ByTitle.Awards} />
                                                 </ListItem>
                                             </List>
                                         </DialogContent>

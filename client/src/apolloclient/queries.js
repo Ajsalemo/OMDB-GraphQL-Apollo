@@ -34,6 +34,8 @@ export const RETRIEVE_TITLE =
                 Director
                 Writer
                 imdbID
+                Language
+                Awards
             }
         }
     `;

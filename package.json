@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/Ajsalemo/OMDB-GraphQL-Apollo#readme",
   "dependencies": {
+    "@material-ui/styles": "^3.0.0-alpha.10",
     "apollo-cache-persist": "^0.1.1",
     "apollo-link-http": "^1.5.11",
     "axios": "^0.18.0",

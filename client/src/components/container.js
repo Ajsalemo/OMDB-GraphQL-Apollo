@@ -39,6 +39,12 @@ const styles = theme => ({
         justifyContent: 'space-around',
         alignItems: 'center',
         backgroundColor: '#c2c8e647'
+    },
+    title: {
+        color: '#0a0aa0',
+        [theme.breakpoints.up('xs')]: {
+            textAlign: 'center',
+        }
     }
 });
 
@@ -81,8 +87,8 @@ class Container extends Component {
                 </AppBar>
                 <AppBar position="static" className={classes.lowerAppBar}>
                     <Toolbar className={classes.lowerAppBarToolBar}>
-                        <Typography variant="h4">
-                            OMDb Movie Application
+                        <Typography variant="h4" className={classes.title}>
+                            <b>OMDb Movie Application</b>
                         </Typography>
                     </Toolbar>
                 </AppBar>

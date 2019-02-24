@@ -51,6 +51,14 @@ const movieQuery = {
     imdbID: {
         type: GraphQLString,
         description: 'Movie ID'
+    },
+    Language: {
+        type: GraphQLString,
+        description: 'Movie Language'
+    },
+    Awards: {
+        type: GraphQLString,
+        description: 'Movie Awards'
     }
 };
 
