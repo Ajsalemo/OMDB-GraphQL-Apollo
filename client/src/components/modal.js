@@ -72,6 +72,11 @@ const styles = () => ({
 });
 
 // ------------------------------------------------------------------------------------------- //
+// These are the category types to be removed when displaying the rest of the information
+// They have already been used in different parts of the modal
+const filteredCategories = ['Plot', 'Title', 'Poster', 'Year', 'imdbID', '__typename'];
+
+// ------------------------------------------------------------------------------------------- //
 
 const ModalDialog = props => {
     const { open, handleClose, classes, imdbID } = props;
@@ -115,32 +120,18 @@ const ModalDialog = props => {
                                             <DialogContentText className={classes.dialogPlot}>
                                                 {data.ByTitle.Plot}
                                             </DialogContentText>
-                                            <List className={classes.dialogList}>
-                                                <ListItem className={classes.dialogInfoList}>
-                                                    <ListItemText primary="Released" secondary={data.ByTitle.Released} />
-                                                </ListItem>
-                                                <ListItem className={classes.dialogInfoList}>
-                                                    <ListItemText primary="Rated" secondary={data.ByTitle.Rated} />
-                                                </ListItem>
-                                                <ListItem className={classes.dialogInfoList}>
-                                                    <ListItemText primary="Runtime" secondary={data.ByTitle.Runtime} />
-                                                </ListItem>
-                                                <ListItem className={classes.dialogInfoList}>
-                                                    <ListItemText primary="Genre" secondary={data.ByTitle.Genre} />
-                                                </ListItem>
-                                                <ListItem className={classes.dialogInfoList}>
-                                                    <ListItemText primary="Director" secondary={data.ByTitle.Director} />
-                                                </ListItem>
-                                                <ListItem className={classes.dialogInfoList}>
-                                                    <ListItemText primary="Writer" secondary={data.ByTitle.Writer} />
-                                                </ListItem>
-                                                <ListItem className={classes.dialogInfoList}>
-                                                    <ListItemText primary="Language" secondary={data.ByTitle.Language} />
-                                                </ListItem>
-                                                <ListItem className={classes.dialogInfoList}>
-                                                    <ListItemText primary="Awards" secondary={data.ByTitle.Awards} />
-                                                </ListItem>
-                                            </List>
+                                            {
+                                                // Loop through the query object key/value pair - specifying ByTitle
+                                                // Filter the results - if the category results from filters function doesn't match what's in the variable array..
+                                                // Then map through the returned array from filter, displaying the data we are needing
+                                                Object.entries(data.ByTitle)
+                                                .filter(titles => filteredCategories.indexOf(titles[0]) === -1)
+                                                    .map((filteredResults, i) => 
+                                                        <ListItem className={classes.dialogInfoList} key={i}>
+                                                            <ListItemText primary={filteredResults[0]} secondary={filteredResults[1]} />
+                                                        </ListItem>
+                                                    )
+                                            }
                                         </DialogContent>
                                         <DialogActions>
                                             <Button color="primary" onClick={handleClose}>
