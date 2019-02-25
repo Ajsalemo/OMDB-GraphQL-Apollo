@@ -3,20 +3,20 @@
 
 import React, { Component } from 'react';
 import { withRouter } from "react-router";
+import { withFormik } from 'formik';
 import PropTypes from 'prop-types';
 
 // Material-UI components
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import { withStyles } from '@material-ui/core/styles';
-import { withFormik } from 'formik';
+import { Typography } from '@material-ui/core';
 import Grid from '@material-ui/core/Grid';
+import { withStyles } from '@material-ui/core/styles';
 
 // React components
 import TextInputField from './searchfield';
 import ListDiv from '../components/listdiv';
-import { Typography } from '@material-ui/core';
-
+import Footer from '../components/footer';
 
 // ------------------------------------------------------------------------------------------- //
 // ------------------------------------------------------------------------------------------- //
@@ -45,6 +45,14 @@ const styles = theme => ({
         [theme.breakpoints.up('xs')]: {
             textAlign: 'center',
         }
+    },
+    footerTypography: {
+        display: 'flex',
+        justifyContent: 'space-evenly',
+        width: '100%'
+    },
+    links: {
+        color:'#000'
     }
 });
 
@@ -88,7 +96,7 @@ class Container extends Component {
                 <AppBar position="static" className={classes.lowerAppBar}>
                     <Toolbar className={classes.lowerAppBarToolBar}>
                         <Typography variant="h4" className={classes.title}>
-                            <b>OMDb Movie Application</b>
+                            <b>OMDb Movie Listings</b>
                         </Typography>
                     </Toolbar>
                 </AppBar>
@@ -98,6 +106,15 @@ class Container extends Component {
                         singleTitle={submittedValue}
                     />
                 </Grid>
+                <Footer
+                    lowerAppBar={classes.lowerAppBar}
+                    lowerAppBarToolBar={classes.lowerAppBarToolBar}
+                    footerTypography={classes.footerTypography}
+                    links={classes.links}
+                    omdbURL={'http://www.omdbapi.com/'}
+                    githubURL={'https://github.com/Ajsalemo/OMDB-GraphQL-Apollo'}
+                    imdbURL={'https://www.imdb.com/'}
+                />
             </React.Fragment>
         )
     }
