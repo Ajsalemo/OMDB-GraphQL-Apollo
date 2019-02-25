@@ -96,7 +96,11 @@ let Searchfield = props => {
 // ------------------------------------------------------------------------------------------- //
 
 Searchfield.propTypes = {
-    classes: PropTypes.object.isRequired
+    classes: PropTypes.object.isRequired,
+    isSubmitting: PropTypes.bool.isRequired,
+    submittedValue: PropTypes.func,
+    handleChange: PropTypes.func,
+    values: PropTypes.string,
 };
 
 // ------------------------------------------------------------------------------------------- //

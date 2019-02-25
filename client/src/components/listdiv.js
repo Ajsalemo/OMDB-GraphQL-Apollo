@@ -3,6 +3,7 @@
 
 import React from 'react';
 import { RETRIEVE_SEARCH } from '../apolloclient/queries';
+import PropTypes from 'prop-types';
 import { Query } from "react-apollo";
 
 // Components
@@ -64,6 +65,12 @@ const ListDiv = props => {
             </Query>
         </React.Fragment>
     )
+};
+// ------------------------------------------------------------------------------------------- //
+
+ListDiv.propTypes = {
+    classes: PropTypes.object.isRequired,
+    singleTitle: PropTypes.string.isRequired
 };
 
 // ------------------------------------------------------------------------------------------- //

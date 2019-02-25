@@ -2,6 +2,7 @@
 // ------------------------------------------------------------------------------------------- //
 
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 // Material-UI components
 import Card from '@material-ui/core/Card';
@@ -87,6 +88,17 @@ class ImageCard extends Component {
             </React.Fragment>
         )
     }
+};
+
+// ------------------------------------------------------------------------------------------- //
+
+ImageCard.propTypes = {
+    classes: PropTypes.object.isRequired,
+    poster: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    year: PropTypes.string.isRequired,
+    imdbID: PropTypes.string,
+    error: PropTypes.string
 };
 
 // ------------------------------------------------------------------------------------------- //

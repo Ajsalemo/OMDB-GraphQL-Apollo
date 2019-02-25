@@ -6,6 +6,7 @@ import React from 'react';
 //Material-UI components
 import { Paper } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
+import PropTypes from 'prop-types';
 
 // Components
 import ImageCard from './imagecard';
@@ -42,6 +43,12 @@ const Error = props => {
         </Paper>
     )
 }
+// ------------------------------------------------------------------------------------------- //
+
+Error.propTypes = {
+    classes: PropTypes.object.isRequired,
+    singleTitle: PropTypes.string
+};
 
 // ------------------------------------------------------------------------------------------- //
 // ------------------------------------------------------------------------------------------- //

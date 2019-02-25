@@ -2,6 +2,7 @@
 // ------------------------------------------------------------------------------------------- //
 
 import React from 'react';
+import PropTypes from 'prop-types';
 
 // Material-UI components
 import AppBar from '@material-ui/core/AppBar';
@@ -31,6 +32,17 @@ const Footer = props => {
             </Toolbar>
         </AppBar>
     )
+};
+// ------------------------------------------------------------------------------------------- //
+
+Footer.propTypes = {
+    lowerAppBar: PropTypes.string.isRequired,
+    lowerAppBarToolBar: PropTypes.string.isRequired,
+    footerTypography: PropTypes.string.isRequired,
+    githubURL: PropTypes.string.isRequired,
+    omdbURL: PropTypes.string.isRequired,
+    imdbURL: PropTypes.string.isRequired,
+    links: PropTypes.string.isRequired
 };
 
 // ------------------------------------------------------------------------------------------- //

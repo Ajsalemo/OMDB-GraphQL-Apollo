@@ -3,6 +3,7 @@
 
 import React from 'react';
 import { Query } from "react-apollo";
+import PropTypes from 'prop-types';
 
 // Material-UI components
 import Dialog from '@material-ui/core/Dialog';
@@ -146,6 +147,14 @@ const ModalDialog = props => {
             </Query>
         </React.Fragment>
     )
+};
+// ------------------------------------------------------------------------------------------- //
+
+ModalDialog.propTypes = {
+    classes: PropTypes.object.isRequired,
+    open: PropTypes.bool.isRequired,
+    imdbID: PropTypes.string.isRequired,
+    handleClose: PropTypes.func
 };
 
 // ------------------------------------------------------------------------------------------- //
