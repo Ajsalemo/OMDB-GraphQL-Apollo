@@ -53,30 +53,26 @@ class ImageCard extends Component {
     };
 
     render() {
-        const { poster, title, year, classes, error, imdbID } = this.props;
+        const { poster, title, year, classes, imdbID } = this.props;
         const { open } = this.state;
         return (
             <React.Fragment>
                 <Paper className={classes.card} elevation={17} key={imdbID} onClick={() => this.handleOpen()}>
-                        <Card>
-                            <CardActionArea>
-                                <CardMedia
-                                    component="img"
-                                    title={title}
-                                    image={poster}
-                                    className={classes.cardMedia}
-                                />
-                                <CardContent className={classes.content}>
-                                    <Typography gutterBottom variant="subtitle1">
-                                        <b>{title}</b>
-                                        <span>{error}</span>
-                                    </Typography>
-                                    <Typography component="p">
-                                        {year}
-                                    </Typography>
-                                </CardContent>
-                            </CardActionArea>
-                        </Card>
+                    <Card>
+                        <CardActionArea>
+                            <CardMedia
+                                component="img"
+                                title={title}
+                                image={poster}
+                                className={classes.cardMedia}
+                            />
+                            <CardContent className={classes.content}>
+                                <Typography component="p">
+                                    {year}
+                                </Typography>
+                            </CardContent>
+                        </CardActionArea>
+                    </Card>
                 </Paper>
 
                 {/* Modal with additional information to be displayed on click */}

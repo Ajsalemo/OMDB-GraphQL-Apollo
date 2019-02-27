@@ -18,6 +18,9 @@ import TextInputField from './searchfield';
 import ListDiv from '../components/listdiv';
 import Footer from '../components/footer';
 
+// Images 
+
+
 // ------------------------------------------------------------------------------------------- //
 // ------------------------------------------------------------------------------------------- //
 

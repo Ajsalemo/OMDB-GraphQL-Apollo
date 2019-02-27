@@ -4,12 +4,14 @@
 import React from 'react';
 
 //Material-UI components
-import { Paper } from '@material-ui/core';
+import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
+import Typography from '@material-ui/core/Typography';
+import Paper from '@material-ui/core/Paper';
+import { CardActionArea } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
-
-// Components
-import ImageCard from './imagecard';
 
 // Images
 import errorgif from '../images/errorgif.gif'
@@ -23,7 +25,7 @@ const styles = () => ({
         marginTop: '0.2em'
     },
     errorComponent: {
-        width: '24em'
+        width: '28em'
     }
 });
 
@@ -33,13 +35,20 @@ const Error = props => {
     const { classes, singleTitle } = props;
     return (
         <Paper className={classes.errorContainer}>
-            <div className={classes.errorComponent}>
-                <ImageCard 
-                    poster={errorgif}
-                    error
-                        ={`Oops, it looks like '${singleTitle}' wasn't found`}
-                />
-            </div>
+            <Card>
+                <CardActionArea>
+                    <CardMedia
+                        component="img"
+                        image={errorgif}
+                        className={classes.errorComponent}
+                    />
+                    <CardContent style={{ textAlign: 'center' }}>
+                        <Typography gutterBottom variant="subtitle1">
+                            <span>Oops, it looks like <b>'{singleTitle}'</b> wasn't found</span>
+                        </Typography>
+                    </CardContent>
+                </CardActionArea>
+            </Card>
         </Paper>
     )
 }
