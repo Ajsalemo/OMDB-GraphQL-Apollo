@@ -10,7 +10,6 @@ import SearchIcon from '@material-ui/icons/Search';
 import TextField from '@material-ui/core/TextField';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
 import { withStyles } from '@material-ui/core/styles';
 
 // ------------------------------------------------------------------------------------------- //
@@ -28,17 +27,10 @@ const styles = () => ({
           WebkitBoxShadow: "0 0 0 1000px #bdf5fbc2 inset"
         }
     },
-    menuIcon: {
-        height: '1.5em',
-        width: '1.5em',
-        '&:hover': {
-            cursor: 'pointer'
-        }
-    },
     form: {
         width: '100%',
         display: 'flex',
-        justifyContent: 'space-evenly'
+        justifyContent: 'center'
     }
 });
 
@@ -79,10 +71,6 @@ let Searchfield = props => {
                             input: classes.input 
                         }
                     }}
-                />
-                <MenuIcon
-                    className={classes.menuIcon}
-                    aria-label="Menu"
                 />
             </Form>
         </React.Fragment>

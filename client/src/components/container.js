@@ -5,6 +5,7 @@ import React, { Component } from 'react';
 import { withRouter } from "react-router";
 import { withFormik } from 'formik';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
 // Material-UI components
 import AppBar from '@material-ui/core/AppBar';
@@ -18,8 +19,8 @@ import TextInputField from './searchfield';
 import ListDiv from '../components/listdiv';
 import Footer from '../components/footer';
 
-// Images 
-
+// Images
+import movieBackground from '../images/moviebackground.jpg';
 
 // ------------------------------------------------------------------------------------------- //
 // ------------------------------------------------------------------------------------------- //
@@ -33,7 +34,12 @@ const styles = theme => ({
         }
     },
     lowerAppBar: {
-        backgroundColor: '#3f51b540',
+        backgroundColor: '#3f51b540'
+    },
+    lowerAppBarBackground: {
+        backgroundImage: `linear-gradient(rgba(0,0,0,.4), rgba(0,0,0,.4) ), 
+            url(${movieBackground})`,
+        backgroundSize: 'cover'
     },
     lowerAppBarToolBar: {
         justifyContent: 'center'
@@ -43,12 +49,6 @@ const styles = theme => ({
         alignItems: 'center',
         backgroundColor: '#c2c8e647'
     },
-    title: {
-        color: '#0a0aa0',
-        [theme.breakpoints.up('xs')]: {
-            textAlign: 'center',
-        }
-    },
     footerTypography: {
         display: 'flex',
         justifyContent: 'space-evenly',
@@ -56,6 +56,16 @@ const styles = theme => ({
     },
     links: {
         color:'#000'
+    },
+    titleFont: {
+        display: 'flex',
+        flexDirection: 'column',
+        [theme.breakpoints.up('xs')]: {
+            textAlign: 'center',
+        }
+    },
+    titleColor: {
+        color: '#fff'
     }
 });
 
@@ -96,10 +106,13 @@ class Container extends Component {
                         />
                     </Toolbar>
                 </AppBar>
-                <AppBar position="static" className={classes.lowerAppBar}>
-                    <Toolbar className={classes.lowerAppBarToolBar}>
-                        <Typography variant="h4" className={classes.title}>
+                <AppBar position="static" className={classNames(classes.lowerAppBar, classes.lowerAppBarBackground)}>
+                    <Toolbar className={classNames(classes.lowerAppBarToolBar, classes.titleFont)}>
+                        <Typography variant="h4" className={classes.titleColor}>
                             <b>OMDb Movie Listings</b>
+                        </Typography>
+                        <Typography variant="subtitle1" className={classes.titleColor}>
+                            search movies and shows
                         </Typography>
                     </Toolbar>
                 </AppBar>
