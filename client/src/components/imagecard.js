@@ -67,6 +67,9 @@ class ImageCard extends Component {
                                 className={classes.cardMedia}
                             />
                             <CardContent className={classes.content}>
+                                <Typography component="h6" gutterBottom>
+                                    <b>{title}</b>
+                                </Typography>
                                 <Typography component="p">
                                     {year}
                                 </Typography>
