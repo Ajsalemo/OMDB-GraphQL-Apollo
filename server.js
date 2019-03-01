@@ -24,6 +24,10 @@ app.use('/graphql', graphqlHTTP({
 // Static folder
 app.use(express.static('public'));
 
+app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'public', 'build', 'index.html'));
+});
+
 const PORT = process.env.PORT || 4000;
 
 // ------------------------------------------------------------------------------------------- //
