@@ -29,12 +29,14 @@ import imagenotfound from '../images/imagenotfound.png';
 // ------------------------------------------------------------------------------------------- //
 // ------------------------------------------------------------------------------------------- //
 
-const styles = () => ({
+const styles = theme => ({
     dialogPaper: {
-        display: 'flex',
-        flexDirection: 'row',
         backgroundColor: '#e8f4ff',
-        border: '6px solid #000'
+        [theme.breakpoints.up(905)]: {
+            display: 'flex',
+            flexDirection: 'row',
+            flex: 'none'
+        }
     },
     dialogYear: {
         borderBottom: '1px solid #000',
@@ -52,7 +54,7 @@ const styles = () => ({
     },
     dialogImage: {
         height: 'fit-content',
-        width: 'auto',
+        width: 'auto'
     },
     dialogImageGrid: {
         display: 'flex',
@@ -60,14 +62,26 @@ const styles = () => ({
         alignItems: 'center'
     },
     dialogPaperImage: {
-        border: '4px solid #000'
+        border: '4px solid #000',
+        marginTop: '1em',
+        textAlign: 'center'
     },
     dialogContent: {
         borderLeft: '1px solid #000',
         paddingBottom: '0'
     },
     dialogTitle: {
-        paddingBottom: '0'
+        paddingBottom: '0',
+        [theme.breakpoints.up('xs')]: {
+            textAlign: 'center'
+        }
+    },
+    modalPaper: {
+        maxHeight: 'fit-content'
+    },
+    modalPaperDialog: {
+        border: '6px solid #000',
+        minWidth: 'min-content'
     }
 });
 
@@ -99,9 +113,12 @@ const ModalDialog = props => {
                                 onClose={handleClose}
                                 maxWidth={'lg'}
                                 fullWidth={true}
+                                classes={{ 
+                                    paperScrollPaper: classes.modalPaperDialog 
+                                }}
                             >
-                                <Paper className={classes.dialogPaper}>
-                                    <Grid item xs={6} className={classes.dialogImageGrid}>
+                                <Paper className={classes.dialogPaper} elevation={17}>
+                                    <Grid item xs={12} sm={12} className={classes.dialogImageGrid}>
                                         <Paper className={classes.dialogPaperImage} elevation={17}>
                                             <CardMedia
                                                 component="img"
@@ -111,7 +128,7 @@ const ModalDialog = props => {
                                             />
                                         </Paper>
                                     </Grid>
-                                    <Grid item xs={6}>
+                                    <Grid item xs={12} sm={12}>
                                         <DialogTitle className={classes.dialogTitle}>{data.ByTitle.Title}</DialogTitle>
                                         <DialogContent className={classes.dialogContent}>
                                             <DialogContentText className={classes.dialogYear} gutterBottom>
